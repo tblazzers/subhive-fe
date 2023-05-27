@@ -1,0 +1,31 @@
+.new-product-container {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  padding-top: 50px;
+}
+.np-form-container {
+  width: 90%;
+}
+input {
+  height: 40px;
+  padding: 5px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+input[type=submit] {
+  color: white;
+  background-color: #167EE6;
+}
+
+textarea {
+  @extend input;
+  height: 120px;
+}
+
+.np-form-group {
+  margin-bottom: 20px;
+}

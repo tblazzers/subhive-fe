@@ -1,0 +1,121 @@
+mat-toolbar {
+  background: #004a9f;
+  color: white;
+}
+
+// mat-sidenav {
+//     width: 200px;
+//     border-right: none;
+//     background: #0F172A;
+//     color: white;
+//     border-radius: 10px;
+//     border-top-left-radius: 0;
+//     border-bottom-left-radius: 0;
+//     padding: 16px;
+//     text-align: center;
+// }
+
+
+.side-nav {
+  border-right: none;
+  background: #0F172A;
+  color: white;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  // position: relative;
+  height: 100%;
+  width: 60px;
+  text-align: center;
+}
+
+.side-nav-expand  {
+  width: 200px;
+  padding: 16px;
+  @extend .side-nav;
+}
+
+.profile-image {
+  border-radius: 30px;
+  height: 30px;
+  width: 30px;
+}
+
+.profile-image-expand {
+  border-radius: 30px;
+  height: 60px;
+  width: 60px;
+}
+
+.profile-section {
+  position: absolute;
+  display: flex;
+  height: 100px;
+  
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.nav-group {
+  margin-top: 60px;
+}
+
+.brand-title {
+  font-size: 19px;
+  padding-top: 19px;
+}
+
+.content {
+  height: 100vh;
+  border-radius: 10px;
+
+  padding: 45px;
+  padding-left: 55px;
+
+  overflow: auto;
+}
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+
+  mat-icon {
+      margin-right: 8px;
+  }
+}
+
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 4px;
+  font-weight: bold;
+
+}
+
+.profession-text {
+  font-size: 10px;
+  line-height: 0.3;
+}
+
+.profile-container {
+  padding-left: 8px;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: lightgrey;
+}

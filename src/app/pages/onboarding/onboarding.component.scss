@@ -1,0 +1,67 @@
+.onboarding-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 200px; /* Adjust the width to your preference */
+    height: 200px; /* Adjust the height to your preference */
+    border: 1px solid #dad7d7; /* Optional: Add border */
+    border-radius: 5px; /* Optional: Add border radius */
+    margin-bottom: 15px;
+    margin-right: 30px;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    background: linear-gradient(to bottom, #f1f1f1, #fff); /* Optional: Add a gradient background */
+  }
+  
+  .icon {
+    font-size: 48px; /* Adjust the font size of the icon */
+    margin-bottom: 10px; /* Optional: Add margin between icon and text */
+  }
+  
+  .text {
+    font-size: 18px; /* Adjust the font size of the text */
+  }
+
+  .intro-section {
+    width: 25%;
+  }
+
+  .card-section {
+    width: 60%;
+  }
+
+  .card-container {
+    margin-top: 45px;
+    margin-bottom: 45px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .industry-option {
+    height: 40px;
+    width: 500px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid lightgray;
+  }
+
+  .submit-btn {
+    margin-top: 10px;
+    padding: 10px;
+    width: 200px;
+    color: white;
+    background-color: #0F172A;
+    border: none;
+    cursor: pointer;
+  }

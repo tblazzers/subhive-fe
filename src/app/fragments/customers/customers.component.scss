@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer-container {
+    padding-top: 20px;
+    
+    margin-top: 30px;
+}
+
+.filter-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+.search-form {
+  min-width: 150px;
+  max-width: 250px;
+  width: 100%;
+}
+
+.search-full-width {
+  width: 100%;
+}

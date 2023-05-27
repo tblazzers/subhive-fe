@@ -1,0 +1,50 @@
+.new-plan-container {
+  padding-top: 30px;
+}
+
+.p-form-group {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+label {
+  width: 200px;
+  font-weight: 300;
+  font-size: 17px;
+  padding-top: 5px;
+}
+
+input {
+  height: 40px;
+  width: 400px;
+  outline: none;
+  padding: 8px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+textarea {
+  @extend input;
+  height: 150px;
+}
+
+input[type=submit] {
+  color: white;
+  background-color: #167EE6;
+  cursor: pointer;
+}
+
+select {
+  @extend input;
+  width: 230px;
+}
+
+.billing-section {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.billing-cycle {
+  width: 150px;
+}
