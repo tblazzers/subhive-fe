@@ -22,6 +22,9 @@ import { NewPlanComponent } from './fragments/new-plan/new-plan.component';
 import { ProductsComponent } from './fragments/products/products.component';
 import { NewProductComponent } from './modals/new-product/new-product.component';
 import { HomeComponent } from './pages/home/home.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,12 +37,15 @@ import { HomeComponent } from './pages/home/home.component';
     NewPlanComponent,
     ProductsComponent,
     NewProductComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,

@@ -8,18 +8,25 @@ import { CustomersComponent } from './fragments/customers/customers.component';
 import { NewPlanComponent } from './fragments/new-plan/new-plan.component';
 import { ProductsComponent } from './fragments/products/products.component';
 import { HomeComponent } from './pages/home/home.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { AuthGuardGuard } from './shared/guards/auth-guard.guard';
+import { LoggedInGuardGuard } from './shared/guards/logged-in-guard.guard';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   {
     path: "dashboard", component: DashboardComponent, children: [
+      { path: "", component: OverviewComponent },
       { path: "overview", component: OverviewComponent },
       { path: "customers", component: CustomersComponent },
       { path: "new-plan", component: NewPlanComponent },
       { path: "product", component: ProductsComponent }
-    ]
+    ],
+    canActivate: [AuthGuardGuard]
   },
-  { path: "login", component: LoginComponent },
+  { path: "login", component: LoginComponent, canActivate: [LoggedInGuardGuard] },
+  { path: "register", component: RegisterComponent },
+
   { path: "onboarding", component: OnboardingComponent },
 ];
 

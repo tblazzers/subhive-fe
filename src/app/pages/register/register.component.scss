@@ -1,0 +1,80 @@
+.login-container {
+  height: 100vh;
+  background-color: #0F172A;
+  
+}
+
+.login-section {
+  height: 100%;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+  color: white;
+}
+
+.login-image-container {
+  height: 650px;
+  width: 40%;
+  background: url("https://img.freepik.com/free-photo/positive-bearded-guy-posing-against-white-wall_273609-20609.jpg?w=2000");
+}
+
+.google-sign-btn {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: #1E293B;
+  color: white;
+}
+
+button, input {
+  height: 50px;
+  padding: 10px;
+  border-radius: 23px;
+  border: none;
+}
+
+input {
+  background: transparent;
+  border: 1px solid ;
+  color: white;
+}
+
+input[type=submit] {
+  background-color:  #167EE6;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+}
+
+input[type=checkbox] {
+height: inherit;
+cursor: pointer;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.login-form-container {
+  padding-left: 80px;
+}
+
+.form-header {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.form-header-desc {
+ color: lightgray;
+ font-size: 14px;
+}
+
+.wide-form-inputs {
+  width: 100%;
+}
+
+.form-group {
+  margin-top: 20px;
+}
+

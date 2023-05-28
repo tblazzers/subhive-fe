@@ -1,19 +1,37 @@
 <div class="login-container">
-  <div class="login-section" >
+  <div class="login-section">
     <div class="login-image-container">
-      
+
     </div>
 
     <div class="login-form-container">
       <h1 class="form-header">Join Us Today</h1>
-      <p class="form-header-desc">Reduce Involuntary churn rates and flexibly configure your business subscription model.</p>
+      <p class="form-header-desc">Reduce Involuntary churn rates and flexibly configure your business subscription
+        model.</p>
       <div>
         <button class="wide-form-inputs google-sign-btn">
           Sign up with Google
         </button>
         <div>
-          <form [formGroup]="loginForm" (submit)="onSumbitLogin()">
-          
+          <form (submit)="onSumbit()" [formGroup]="registerForm">
+            <div class="form-group">
+              <label>
+                First Name
+              </label>
+              <div>
+                <input class="wide-form-inputs " type="text" formControlName="firstName"/>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label>
+                Last Name
+              </label>
+              <div>
+                <input class="wide-form-inputs " type="text" formControlName="lastName"/>
+              </div>
+
+            </div>
             <div class="form-group">
               <label>
                 Email Address
@@ -21,33 +39,33 @@
               <div>
                 <input class="wide-form-inputs " type="email" formControlName="email" />
               </div>
-              
+
             </div>
             <div class="form-group">
               <label>
                 Password
               </label>
               <div>
-                <input class="wide-form-inputs " type="password" formControlName="password" />
+                <input class="wide-form-inputs " type="password"  formControlName="password"/>
               </div>
-              
+
             </div>
             <div class="form-group">
               <input type="checkbox" /> Remember Me
             </div>
-            
+
             <div class="form-group">
-              <input type="submit" value="Login In" />
+              <input type="submit" value="Create Account" />
             </div>
 
             <div class="form-group">
               <p>
-                Don't have an account? <span class="auth-text-span" routerLink="/register">Register</span>
+                Already have an Account? <span class="auth-text-span" routerLink="/login">Login</span>
               </p>
             </div>
-            
+
           </form>
-         
+
         </div>
       </div>
     </div>
