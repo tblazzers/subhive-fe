@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NewProductComponent } from 'src/app/modals/new-product/new-product.component';
+import { Product } from 'src/app/models/product';
 import { LoginComponent } from 'src/app/pages/login/login.component';
+import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +11,23 @@ import { LoginComponent } from 'src/app/pages/login/login.component';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  constructor(public dialog: MatDialog) {}
+
+  products: Product[];
+  displayedColumns: string[] = ['name', 'description'];
+
+  constructor(public dialog: MatDialog, private apiService: ApiService) {
+    this.products = [];
+  }
+
+  ngOnInit() {
+    this.fetchProducts();
+  }
+
+  private fetchProducts() {
+    this.apiService.getAccountProducts().subscribe((products: any)=> {
+      this.products = products;
+    })
+  }
   
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(NewProductComponent, {
@@ -17,6 +35,12 @@ export class ProductsComponent {
       height: '400px',
       enterAnimationDuration,
       exitAnimationDuration,
+      data: {
+        submitFn: () => {         
+          this.dialog.closeAll();
+          this.fetchProducts();
+        }
+      }
     });
   }
 }

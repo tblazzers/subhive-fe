@@ -53,38 +53,49 @@
     </div>
 
     <div class="nav-group">
-      <button mat-icon-button class="menu-button" routerLink="/home">
-        <mat-icon>home</mat-icon>
-        <span *ngIf="expanded">Home</span>
-      </button>
-      <button mat-icon-button class="menu-button" routerLink="/profile">
-        <mat-icon>person</mat-icon>
-        <span *ngIf="expanded">Profile</span>
-      </button>
-      <button mat-icon-button class="menu-button" routerLink="/about">
-        <mat-icon>info</mat-icon>
-        <span *ngIf="expanded">Settings</span>
-      </button>
+      <div class="menu-buton-wrapper" routerLinkActive="blue-background" routerLink="overview">
+        <button mat-icon-button class="menu-button">
+          <mat-icon>home</mat-icon>
+          <span *ngIf="expanded">Home</span>
+        </button>
+      </div>
 
-      <button mat-icon-button class="menu-button" routerLink="/help">
-        <mat-icon>help</mat-icon>
-        <span *ngIf="expanded">Help</span>
-      </button>
-    </div>
+      <div class="menu-buton-wrapper" routerLinkActive="blue-background" routerLink="customers">
+        <button mat-icon-button class="menu-button">
+          <mat-icon>person</mat-icon>
+          <span *ngIf="expanded">Subscribers</span>
+        </button>
+      </div>
+      <div class="menu-buton-wrapper" routerLinkActive="blue-background" routerLink="product">
+        <button mat-icon-button class="menu-button">
+          <mat-icon>work</mat-icon>
+          <span *ngIf="expanded">Products</span>
+        </button>
+      </div>
+      <div class="menu-buton-wrapper" routerLinkActive="blue-background" routerLink="plans">
+        <button mat-icon-button class="menu-button">
+          <mat-icon>category</mat-icon>
+          <span *ngIf="expanded">Plans</span>
+        </button>
+      </div>
 
-    <div class="nav-group">
-      <button mat-icon-button class="menu-button" routerLink="/home">
-        <mat-icon>settings</mat-icon>
-        <span *ngIf="expanded">Home</span>
-      </button>
-    </div>
+      <div class="nav-group">
+        <div class="menu-buton-wrapper" routerLinkActive="blue-background" routerLink="settings">
+          <button mat-icon-button class="menu-button">
+            <mat-icon>settings</mat-icon>
+            <span *ngIf="expanded">Settings</span>
+          </button>
+        </div>
+      </div>
 
-    <div class="profile-section">
-      <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        alt="profile" [ngClass]="expanded ? 'profile-image-expand' : 'profile-image' " class="profile-image" />
-      <div class="profile-container" *ngIf="expanded">
-        <p class="name">Unegbu Kingsley</p>
-        <p class="profession-text">Software Developer</p>
+      <div class="profile-section">
+        <img
+          src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="profile" [ngClass]="expanded ? 'profile-image-expand' : 'profile-image' " class="profile-image" />
+        <div class="profile-container" *ngIf="expanded">
+          <p class="name">Unegbu Kingsley</p>
+          <p class="profession-text">Software Developer</p>
+        </div>
       </div>
     </div>
 

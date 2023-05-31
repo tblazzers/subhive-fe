@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,9 +13,9 @@ export class DashboardComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
-  expanded = false;
+  expanded = true;
 
-  constructor(private observer: BreakpointObserver, private router: Router) {}
+  constructor(private observer: BreakpointObserver, private router: Router, private apiService: ApiService) {}
 
   ngAfterViewInit() {
     this.observer
@@ -40,5 +41,7 @@ export class DashboardComponent {
           this.sidenav.close();
         }
       });
+
+      //this.apiService.getUserProfile();
   }
 }

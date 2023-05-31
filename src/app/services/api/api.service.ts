@@ -4,6 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Registration } from "../../models/registration";
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { Login } from 'src/app/models/login';
+import { Account, AccountProfile } from 'src/app/models/account';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { shareReplay } from 'rxjs';
+import { Product } from 'src/app/models/product';
+import { Plan } from 'src/app/models/plan';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +19,16 @@ export class ApiService {
 
   readonly BASE_URL = environment.apiUrl;
 
-  constructor(private httpService: HttpClient, private localStorageService: LocalStorageService) {
+  constructor(
+    private httpService: HttpClient,
+    private localStorageService: LocalStorageService,
+    private router: Router
+  ) {
 
   }
+
+  readonly accountProfile$ = this.fetchAccountProfile().pipe(shareReplay(1));
+  private readonly _todos = new BehaviorSubject<AccountProfile | null>(null);
 
   registerUser(registerUser: Registration, cb: () => void = () => {}) {
     const registerUrl = "register"
@@ -37,5 +51,74 @@ export class ApiService {
       this.localStorageService.saveAuthToken(response.token);
       cb();
     })
+  }
+
+  fetchAccountProfile() {
+    const profileUrl = "accounts/profile";
+    return this.httpService.get<AccountProfile>(`${this.BASE_URL}${profileUrl}`);
+  }
+
+  setupAccountDetails(account: Account, cb: () => void = () => {}) {
+    const accountSetupUrl = "accounts";
+    this.httpService.post(`${this.BASE_URL}${accountSetupUrl}`, { account: account }).subscribe((response: any) => {
+      cb();
+    })
+  }
+
+  createAccountProduct(product: Partial<Product>, cb: () => void = () => {}) {
+    const productsUrl = "products";
+    this.httpService.post(`${this.BASE_URL}${productsUrl}`, { product: product }).subscribe((Response: any) => {
+      cb();
+    })
+  }
+
+  getAccountProducts() {
+    const productsUrl = "products";
+    return this.httpService.get(`${this.BASE_URL}${productsUrl}`);
+  }
+
+  createProductPlan(plan: Plan, cb: () => void = () => {}) {
+    const productPlanUrl = "product_plans";
+    this.httpService.post(`${this.BASE_URL}${productPlanUrl}`, {plan: plan}).subscribe((response: any) => {
+      cb();
+    })
+  }
+
+
+  getAccountProductPlans(productId: string = "") {
+    let productPlanUrl = "product_plans";
+    if (productId) {
+      productPlanUrl = `product_plans?product_id=${productId}`;
+    }
+    return this.httpService.get(`${this.BASE_URL}${productPlanUrl}`);
+  }
+
+  fetchAccountSubscribers() {
+    let subscribersUrl = "subscriptions";
+    return this.httpService.get(`${this.BASE_URL}${subscribersUrl}`);
+  }
+
+
+  // getUserProfile() {
+    
+  //   if (this.accountProfile) {
+  //     return this.accountProfile.user;
+  //   }
+  //   const profileUrl = "accounts/profile";
+  //   this.httpService.get<AccountProfile>(`${this.BASE_URL}${profileUrl}`).subscribe((response: AccountProfile) => {
+  //     console.log(response);
+  //     this.accountProfile = response;
+  //   },
+  //   (err) => {
+  //     console.log(err.status);
+  //     this.handleError(err);
+  //   })
+  // }
+
+  private handleError(error: any) {
+    if (error.status == 401) {
+      this.localStorageService.clearAuthToken();
+      this.router.navigate(["/login"]);
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class RegisterComponent {
   })
   
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   onSumbit() {
     this.apiService.registerUser({
@@ -25,6 +26,8 @@ export class RegisterComponent {
       lastName: this.registerForm.value.lastName || "",
       email: this.registerForm.value.email || "",
       password: this.registerForm.value.password || ""
+    }, () => {
+      this.router.navigate(["/onboarding"])
     })
   }
 }

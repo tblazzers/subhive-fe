@@ -1,6 +1,6 @@
 .login-container {
   height: 100vh;
-  background-color: #0F172A;
+  background-color: white;
   
 }
 
@@ -9,13 +9,15 @@
   display: flex;
   width: 80%;
   margin: 0 auto;
-  align-items: center;
+  padding: 20px;
   color: white;
+  overflow: hidden;
+  margin-top: 20px;
 }
 
 .login-image-container {
   height: 650px;
-  width: 40%;
+  width: 65%;
   background: url("https://img.freepik.com/free-photo/positive-bearded-guy-posing-against-white-wall_273609-20609.jpg?w=2000");
 }
 
@@ -35,8 +37,8 @@ button, input {
 
 input {
   background: transparent;
-  border: 1px solid ;
-  color: white;
+  border: 1px solid lightgray;
+  color: black;
 }
 
 input[type=submit] {
@@ -44,6 +46,7 @@ input[type=submit] {
   border: none;
   cursor: pointer;
   width: 200px;
+  color: white;
 }
 
 input[type=checkbox] {
@@ -54,6 +57,7 @@ cursor: pointer;
 label {
   display: inline-block;
   margin-bottom: 5px;
+  color: black;
 }
 
 .login-form-container {
@@ -66,7 +70,7 @@ label {
 }
 
 .form-header-desc {
- color: lightgray;
+ color: darkgray;
  font-size: 14px;
 }
 
@@ -75,6 +79,7 @@ label {
 }
 
 .form-group {
+  color: black;
   margin-top: 20px;
 }
 

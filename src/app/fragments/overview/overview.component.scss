@@ -19,6 +19,7 @@
   }
 
   .new-plan-btn {
+    cursor: pointer;
     width: 200px;
     height: 50px;
     border: none;
@@ -34,4 +35,13 @@
   .table-container {
     margin-top: 25px;
     padding-right: 27px;
+  }
+
+  .number-char {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .text {
+    margin-top: 10px;
   }

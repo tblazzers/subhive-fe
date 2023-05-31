@@ -1,6 +1,6 @@
 <div class="new-product-container">
   <div class="np-form-container">
-    <form>
+    <form  (submit)="submitProduct()" [formGroup]="productForm">
       <div class="np-form-group">
         <div>
           <label>
@@ -8,7 +8,7 @@
           </label>
         </div>
         <div>
-          <input type="text" />
+          <input type="text" formControlName="name" />
         </div>
       </div>
       <div class="np-form-group">
@@ -18,12 +18,12 @@
           </label>
         </div>
         <div>
-          <textarea></textarea>
+          <textarea formControlName="description"></textarea>
         </div>
       </div>
       <div class="np-form-group">
         <div>
-          <input type="submit" />
+          <input type="submit" value="Add"/>
         </div>
       </div>
     </form>

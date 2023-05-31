@@ -18,11 +18,19 @@
     margin-right: 30px;
   }
 
-  .card:hover {
+  .card-selected {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     background: linear-gradient(to bottom, #f1f1f1, #fff); /* Optional: Add a gradient background */
   }
+
+  .card:hover {
+    @extend .card-selected;
+  }
   
+  .unit-section {
+    margin-bottom: 15px;
+  }
+
   .icon {
     font-size: 48px; /* Adjust the font size of the icon */
     margin-bottom: 10px; /* Optional: Add margin between icon and text */
@@ -37,7 +45,7 @@
   }
 
   .card-section {
-    width: 60%;
+    width: 80%;
   }
 
   .card-container {

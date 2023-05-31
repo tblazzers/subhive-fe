@@ -1,0 +1,75 @@
+<div class="t-container">
+  <div class="header">
+    <p class="dashboard-header-text">Add Plan</p>
+  </div>
+  <div class="new-plan-container">
+    <form [formGroup]="planFormGroup" (submit)="submitProductPlan()">
+      <div class="p-form-group">
+        <label>
+          Plan Name
+        </label>
+        <input type="text" formControlName="name" />
+      </div>
+
+      <div class="p-form-group">
+        <label>
+          Product
+        </label>
+        <select formControlName="product_id" >
+          <option>Select Product</option>
+          <option *ngFor="let p of products" value="{{p.id}}">
+          {{p.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="p-form-group">
+        <label>
+          Price
+        </label>
+        <input type="number" formControlName="price" />
+      </div>
+
+      <div class="p-form-group">
+        <label>
+          Billing Cycle
+        </label>
+        <div class="billing-section">
+          <input class="billing-cycle" type="number" formControlName="billing_frequency" />
+          <select formControlName="billing_cycle">
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
+        </div>
+        
+      </div>
+
+      <div class="p-form-group">
+        <label>
+          Currency
+        </label>
+        <select formControlName="currency">
+          <option value="NGN"> NGN</option>
+          <option value="GHC"> GHC</option>
+          <option value="USD"> USD</option>
+        </select>
+      </div>
+
+      <div class="p-form-group">
+        <label>
+          Description
+        </label>
+       <textarea formControlName="description"></textarea>
+      </div>
+      <div class="p-form-group">
+        <label>
+          
+        </label>
+       <input type="submit" value="Create Plan" />
+      </div>
+    </form>
+  </div>
+</div>

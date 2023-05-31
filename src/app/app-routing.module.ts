@@ -5,12 +5,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { OverviewComponent } from './fragments/overview/overview.component';
 import { CustomersComponent } from './fragments/customers/customers.component';
-import { NewPlanComponent } from './fragments/new-plan/new-plan.component';
+import { NewPlanComponent } from './modals/new-plan/new-plan.component';
 import { ProductsComponent } from './fragments/products/products.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuardGuard } from './shared/guards/auth-guard.guard';
 import { LoggedInGuardGuard } from './shared/guards/logged-in-guard.guard';
+import { PlansComponent } from './fragments/plans/plans.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
       { path: "", component: OverviewComponent },
       { path: "overview", component: OverviewComponent },
       { path: "customers", component: CustomersComponent },
-      { path: "new-plan", component: NewPlanComponent },
+      { path: "plans", component: PlansComponent },
       { path: "product", component: ProductsComponent }
     ],
     canActivate: [AuthGuardGuard]

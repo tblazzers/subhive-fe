@@ -1,35 +1,27 @@
 <div class="container">
-  <div>
+  <!-- <div>
     <p>
       Subhive Subscription
     </p>
-  </div>
+  </div> -->
   <div class="onboarding-container">
     <div class="intro-section">
-      <h2>Hi, Jabari</h2>
+      <h2>Hi, {{(accountProfile$ | async)?.user?.last_name}}</h2>
       <p>Please introduce your Company to us.</p>
     </div>
     <div class="card-section">
       <p>Select your industry type to help us fine-tune your experience.</p>
       <div class="card-container">
 
-        <div class="card">
+        <div class="card" (click)="selectCompanyType(companyType.name)"  [ngClass]="{'card-selected': selectedCompanyType === companyType.name}" *ngFor="let companyType of companyTypes">
           <div class="icon">
-            <mat-icon color="white">cloud</mat-icon>
+            <mat-icon color="white">{{companyType.icon}}</mat-icon>
           </div>
           <div class="text">
-            IT
+            {{companyType.name}}
           </div>
         </div>
-        <div class="card">
-          <div class="icon">
-            <mat-icon>cloud</mat-icon>
-          </div>
-          <div class="text">
-            IT
-          </div>
-        </div>
-        <div class="card">
+        <!-- <div class="card">
           <div class="icon">
             <mat-icon>cloud</mat-icon>
           </div>
@@ -61,12 +53,26 @@
             IT
           </div>
         </div>
+        <div class="card">
+          <div class="icon">
+            <mat-icon>cloud</mat-icon>
+          </div>
+          <div class="text">
+            IT
+          </div>
+        </div> -->
       </div>
       <div>
-        <p style="font-weight: bold;"> Can't find your industry, type ?</p>
-        <form>
-          <div>
-            <input type="text" placeholder="Start typing to select from more options or input your own."
+        <!-- <p style="font-weight: bold;"> Can't find your industry, type ?</p> -->
+        <form [formGroup]="companyForm" (submit)="submitCompanyDetails()">
+          <div class="unit-section">
+            <label>Company Name</label><br />
+            <input type="text" placeholder="" formControlName="companyName"
+              class="industry-option" />
+          </div>
+          <div class="unit-section">
+            <label>Company Website</label><br />
+            <input type="text" placeholder="" formControlName="companyWebsite"
               class="industry-option" />
           </div>
           <input class="submit-btn" type="submit" value="Continue -->" />

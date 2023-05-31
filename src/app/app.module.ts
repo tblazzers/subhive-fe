@@ -18,13 +18,16 @@ import { LoginComponent } from './pages/login/login.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { OverviewComponent } from './fragments/overview/overview.component';
 import { CustomersComponent } from './fragments/customers/customers.component';
-import { NewPlanComponent } from './fragments/new-plan/new-plan.component';
+import { NewPlanComponent } from './modals/new-plan/new-plan.component';
 import { ProductsComponent } from './fragments/products/products.component';
 import { NewProductComponent } from './modals/new-product/new-product.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpInterceptorInterceptor } from './shared/interceptors/http-interceptor.interceptor';
+import { PlansComponent } from './fragments/plans/plans.component';
+import { HeaderComponent } from './core/header/header.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductsComponent,
     NewProductComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    PlansComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
