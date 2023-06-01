@@ -12,6 +12,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuardGuard } from './shared/guards/auth-guard.guard';
 import { LoggedInGuardGuard } from './shared/guards/logged-in-guard.guard';
 import { PlansComponent } from './fragments/plans/plans.component';
+import { SettingsComponent } from './fragments/settings/settings.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: "overview", component: OverviewComponent },
       { path: "customers", component: CustomersComponent },
       { path: "plans", component: PlansComponent },
-      { path: "product", component: ProductsComponent }
+      { path: "product", component: ProductsComponent },
+      { path: "settings", component: SettingsComponent }
     ],
     canActivate: [AuthGuardGuard]
   },

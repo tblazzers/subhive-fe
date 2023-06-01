@@ -3,6 +3,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { ApiService } from 'src/app/services/api/api.service';
+import { Observable } from 'rxjs';
+import { AccountProfile } from 'src/app/models/account';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +15,14 @@ export class DashboardComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
+  accountProfile$: Observable<AccountProfile> | null = null;
+
+
   expanded = true;
+
+  ngOnInit() {
+    this.accountProfile$ = this.apiService.accountProfile$;
+  }
 
   constructor(private observer: BreakpointObserver, private router: Router, private apiService: ApiService) {}
 

@@ -1,0 +1,12 @@
+<div>
+  <div class="integrations-container">
+    <div class="integration-section">
+      <div *ngFor="let gateWay of gateways" class="gateway-container" [ngStyle]="{'pointer-events': (gateWay.active) ? '' : 'none'}" (click)="openIntegrationDialog('', '')" >
+        <div style="background: url({{gateWay.image_url}});" class="gateway-image">
+          
+        </div>
+        <p class="gateway-title">{{gateWay.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+.integrations-container {
+  padding-top: 30px;
+}
+
+.integration-section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gateway-container {
+  cursor: pointer;
+}
+
+.gateway-image {
+  width: 500px;
+  height: 300px;
+  background-position: cover !important;
+  background-position-y: center;
+  background-size: 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+.gateway-title {
+  font-size: 23px;
+  text-align: center;
+}

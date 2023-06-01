@@ -49,7 +49,7 @@
   <mat-sidenav #sidenav="matSidenav" [ngClass]="expanded ? 'side-nav-expand' : 'side-nav' " class="mat-elevation-z8">
     <div style="padding: 15px;">
       <img src="assets/images/logo.png" alt="logo" height="30" width="30" />
-      <p *ngIf="expanded" class="brand-title">SubHive</p>
+      <p *ngIf="expanded" class="brand-title">Mera</p>
     </div>
 
     <div class="nav-group">
@@ -61,7 +61,7 @@
       </div>
 
       <div class="menu-buton-wrapper" routerLinkActive="blue-background" routerLink="customers">
-        <button mat-icon-button class="menu-button">
+        <button mat-icon-button class="menu-button" [disableRipple]="true" >
           <mat-icon>person</mat-icon>
           <span *ngIf="expanded">Subscribers</span>
         </button>
@@ -89,12 +89,12 @@
       </div>
 
       <div class="profile-section">
-        <img
-          src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          alt="profile" [ngClass]="expanded ? 'profile-image-expand' : 'profile-image' " class="profile-image" />
+        <div class="profile-image" [ngClass]="expanded ? 'profile-image-expand' : 'profile-image' ">
+
+        </div>
         <div class="profile-container" *ngIf="expanded">
-          <p class="name">Unegbu Kingsley</p>
-          <p class="profession-text">Software Developer</p>
+          <p class="name"> {{(accountProfile$ | async)?.user?.first_name}} {{(accountProfile$ | async)?.user?.last_name}}</p>
+          <p class="profession-text">{{(accountProfile$ | async)?.account?.company_name}}</p>
         </div>
       </div>
     </div>

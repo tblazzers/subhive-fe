@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatTabsModule } from '@angular/material/tabs'; 
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
@@ -28,6 +29,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpInterceptorInterceptor } from './shared/interceptors/http-interceptor.interceptor';
 import { PlansComponent } from './fragments/plans/plans.component';
 import { HeaderComponent } from './core/header/header.component';
+import { SettingsComponent } from './fragments/settings/settings.component';
+import { IntegrationsComponent } from './fragments/integrations/integrations.component';
+import { KeyIntegrationComponent } from './modals/key-integration/key-integration.component';
+import { PlanListComponent } from './modals/plan-list/plan-list.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,11 @@ import { HeaderComponent } from './core/header/header.component';
     HomeComponent,
     RegisterComponent,
     PlansComponent,
-    HeaderComponent
+    HeaderComponent,
+    SettingsComponent,
+    IntegrationsComponent,
+    KeyIntegrationComponent,
+    PlanListComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +67,8 @@ import { HeaderComponent } from './core/header/header.component';
     MatIconModule,
     MatTableModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTabsModule
   ],
   providers: [
     {

@@ -36,8 +36,12 @@ mat-toolbar {
 }
 
 .profile-image {
+  background-position: center;
+  background-size: 50px;
   border-radius: 30px;
   height: 30px;
+  background-size: cover !important;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfmjwgWKFAkrKlMdjNbhuyA6YMrkxpJo1b-w&usqp=CAU");
   width: 30px;
 }
 

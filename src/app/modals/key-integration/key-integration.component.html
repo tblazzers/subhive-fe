@@ -1,0 +1,31 @@
+<div class="new-product-container">
+  <div class="np-form-container">
+    <form (submit)="submitKeyIntegration()" [formGroup]="keyIntegrationForm">
+      <div class="np-form-group">
+        <div>
+          <label>
+            Public Key
+          </label>
+        </div>
+        <div>
+          <input type="text" formControlName="publicKey" />
+        </div>
+      </div>
+      <div class="np-form-group">
+        <div>
+          <label>
+            Private Key
+          </label>
+        </div>
+        <div>
+          <textarea formControlName="privateKey"></textarea>
+        </div>
+      </div>
+      <div class="np-form-group">
+        <div>
+          <input type="submit" value="Integrate" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

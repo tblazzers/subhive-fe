@@ -11,6 +11,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { shareReplay } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { Plan } from 'src/app/models/plan';
+import { Gateway } from 'src/app/models/gateway';
 
 @Injectable({
   providedIn: 'root'
@@ -98,6 +99,10 @@ export class ApiService {
     return this.httpService.get(`${this.BASE_URL}${subscribersUrl}`);
   }
 
+  getPaymentGateway() {
+    const getwayUrl = "gateways";
+    return this.httpService.get<Gateway[]>(`${this.BASE_URL}${getwayUrl}`);
+  }
 
   // getUserProfile() {
     
