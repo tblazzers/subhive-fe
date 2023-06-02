@@ -17,8 +17,12 @@ export class CustomersComponent {
 
   displayedColumns: string[] = ['email', 'full_name', 'plan', 'product'];
 
+  ngOnInit() {
+    this.fetchSubscribers();
+  }
+
   fetchSubscribers() {
-    this.apiService.getAccountProducts().subscribe((subsccribers: any)=> {
+    this.apiService.fetchAccountSubscribers().subscribe((subsccribers: any)=> {
       this.subscribers = subsccribers;
     })
   }
