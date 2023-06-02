@@ -1,0 +1,29 @@
+.plan-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-evenly;
+}
+
+.plan-box {
+  border-radius: 10px;
+  width: 30%;
+  height: 200px;
+  border: 1px solid lightgray;
+}
+
+.plan-name {
+  background-color: #004a9f;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  height: 130px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-text {
+  text-align: center;
+  font-weight: bold;
+}

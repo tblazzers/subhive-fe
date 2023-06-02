@@ -1,5 +1,7 @@
-<div>
-  <div>
-    
+<div class="plan-container">
+  <div class="plan-box" *ngFor="let plan of plans">
+    <p class="plan-name">{{plan.name}}</p>
+    <p class="price-text">{{plan.price}} GHC {{plan.billing_cycle}}</p>
+
   </div>
 </div>
