@@ -29,7 +29,26 @@ export class ApiService {
   }
 
   readonly accountProfile$ = this.fetchAccountProfile().pipe(shareReplay(1));
-  private readonly _todos = new BehaviorSubject<AccountProfile | null>(null);
+
+  private aProductId: BehaviorSubject<string> = new BehaviorSubject<string>('all');
+
+  get activeProductId() {
+    return this.aProductId.asObservable();
+  }
+
+  setActiveProductId(productId: string) {
+    this.aProductId.next(productId);
+  }
+
+  // private aProductId: string = 'all';
+
+  // get activeProductId() {
+  //   return this.aProductId;
+  // }
+
+  // setActiveProductId(productId: string) {
+  //   this.aProductId = productId;
+  // }
 
   registerUser(registerUser: Registration, cb: () => void = () => {}) {
     const registerUrl = "register"
@@ -59,7 +78,7 @@ export class ApiService {
     return this.httpService.get<AccountProfile>(`${this.BASE_URL}${profileUrl}`);
   }
 
-  setupAccountDetails(account: Account, cb: () => void = () => {}) {
+  setupAccountDetails(account: Partial<Account>, cb: () => void = () => {}) {
     const accountSetupUrl = "accounts";
     this.httpService.post(`${this.BASE_URL}${accountSetupUrl}`, { account: account }).subscribe((response: any) => {
       cb();
@@ -75,7 +94,7 @@ export class ApiService {
 
   getAccountProducts() {
     const productsUrl = "products";
-    return this.httpService.get(`${this.BASE_URL}${productsUrl}`);
+    return this.httpService.get<Product[]>(`${this.BASE_URL}${productsUrl}`);
   }
 
   createProductPlan(plan: Plan, cb: () => void = () => {}) {
@@ -94,9 +113,9 @@ export class ApiService {
     return this.httpService.get(`${this.BASE_URL}${productPlanUrl}`);
   }
 
-  fetchAccountSubscribers() {
+  fetchAccountSubscribers(productId: string) {
     let subscribersUrl = "subscriptions";
-    return this.httpService.get(`${this.BASE_URL}${subscribersUrl}`);
+    return this.httpService.get(`${this.BASE_URL}${subscribersUrl}?product_id=${productId}`);
   }
 
   getPaymentGateway() {

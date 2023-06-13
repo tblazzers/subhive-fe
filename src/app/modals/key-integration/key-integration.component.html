@@ -1,6 +1,6 @@
 <div class="new-product-container">
   <div class="np-form-container">
-    <form (submit)="submitKeyIntegration()" [formGroup]="keyIntegrationForm">
+    <!-- <form (submit)="submitKeyIntegration()" [formGroup]="keyIntegrationForm">
       <div class="np-form-group">
         <div>
           <label>
@@ -26,6 +26,17 @@
           <input type="submit" value="Integrate" />
         </div>
       </div>
-    </form>
+    </form> -->
+
+    <div>
+      <p>Paste the following link in your paystack account</p>
+      <h2 style="word-wrap: break-word;">{{webHookUrl}}{{(accountProfile$ | async)?.account?.id}}</h2>
+      <h3>Instructions</h3>
+      <ul>
+        <li>Go to paystack dashboard</li>
+        <li>Find setting > API/Webhook</li>
+        <li>Paste the above URL in the webhook space.</li>
+      </ul>
+    </div>
   </div>
 </div>

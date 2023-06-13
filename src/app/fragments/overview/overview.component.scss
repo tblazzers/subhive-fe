@@ -1,3 +1,16 @@
+.demo-chart {
+  height: 400px;
+}
+
+.graph-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.graph-box {
+  width: 50%;
+}
+
 .card {
     cursor: pointer;
     display: flex;

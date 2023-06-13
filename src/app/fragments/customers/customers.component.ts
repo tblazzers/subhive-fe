@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Subscriber } from 'src/app/models/subscriber';
 import { ApiService } from 'src/app/services/api/api.service';
 
@@ -10,9 +11,13 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class CustomersComponent {
   
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {
+    this.activeProductId = this.apiService.activeProductId;
+  }
 
   subscribers : Subscriber[] = [];
+
+  activeProductId: Observable<string>;
   
 
   displayedColumns: string[] = ['email', 'full_name', 'plan', 'product'];
@@ -22,8 +27,11 @@ export class CustomersComponent {
   }
 
   fetchSubscribers() {
-    this.apiService.fetchAccountSubscribers().subscribe((subsccribers: any)=> {
-      this.subscribers = subsccribers;
+    this.activeProductId.subscribe(val=> {
+      this.apiService.fetchAccountSubscribers(val).subscribe((subsccribers: any)=> {
+        this.subscribers = subsccribers;
+      })
     })
+   
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EChartsOption } from 'echarts';
 import { Plan } from 'src/app/models/plan';
 import { ApiService } from 'src/app/services/api/api.service';
 
@@ -28,4 +29,35 @@ export class OverviewComponent {
     });
   }
   
+  chartOption: EChartsOption = {
+    title: { text: "Week's Subscriptions", show: true },
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        data: [4, 0, 3, 1, 2, 0, 3],
+        type: 'line',
+      },
+    ],
+  };
+
+  churnOption: EChartsOption = {
+    title: { text: "Churn Rate", show: true },
+    xAxis: {
+      type: 'category',
+      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [{
+      data: [0, 0 ,0 ,0, 0, 0],
+      type: 'line'
+    }]
+  }
 }

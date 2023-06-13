@@ -1,11 +1,12 @@
 <div>
+   
     <div class="card-container">
         <div class="card">
             <div class="number-char">
                 0
             </div>
             <div class="text">
-                MMR
+                MRR
             </div>
         </div>
         <div class="card">
@@ -16,9 +17,27 @@
                 Product Plans
             </div>
         </div>
+        <div class="card">
+            <div class="number-char">
+                0
+            </div>
+            <div class="text">
+                Failed Renewal
+            </div>
+        </div>
     </div>
     <div class="new-btn-container">
-        <button class="new-plan-btn" routerLink="/dashboard/product">Product</button>
+        <button class="new-plan-btn" routerLink="/dashboard/products">Product</button>
+    </div>
+    <div class="graph-container">
+        <div class="graph-box">
+            <div echarts [options]="chartOption" class="demo-chart"></div>
+        </div>
+
+        <div class="graph-box">
+            <div echarts [options]="churnOption" class="demo-chart"></div>
+        </div>
+        
     </div>
     <div class="table-container">
         <table mat-table [dataSource]="plans" class="mat-elevation-z8">

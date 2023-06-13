@@ -5,6 +5,7 @@ export interface User {
 }
 
 export interface Account {
+  id: number
   company_name: string
   company_address: string
   company_sector: string

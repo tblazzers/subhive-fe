@@ -5,6 +5,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { ApiService } from 'src/app/services/api/api.service';
 import { Observable } from 'rxjs';
 import { AccountProfile } from 'src/app/models/account';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,15 +17,23 @@ export class DashboardComponent {
   sidenav!: MatSidenav;
 
   accountProfile$: Observable<AccountProfile> | null = null;
+  products$: Observable<Product[]> | null = null;
+
+  selectedProduct: string = 'all';
 
 
   expanded = true;
 
   ngOnInit() {
     this.accountProfile$ = this.apiService.accountProfile$;
+    this.products$ = this.apiService.getAccountProducts();
   }
 
   constructor(private observer: BreakpointObserver, private router: Router, private apiService: ApiService) {}
+
+  setActiveProduct(event: any) {
+    this.apiService.setActiveProductId(this.selectedProduct);
+  }
 
   ngAfterViewInit() {
     this.observer

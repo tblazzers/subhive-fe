@@ -9,11 +9,13 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTabsModule } from '@angular/material/tabs'; 
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatButtonModule } from "@angular/material/button";
+import { MatSelectModule } from "@angular/material/select";
 import { MatTableModule } from "@angular/material/table";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatCardModule } from "@angular/material/card";
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
@@ -34,6 +36,12 @@ import { IntegrationsComponent } from './fragments/integrations/integrations.com
 import { KeyIntegrationComponent } from './modals/key-integration/key-integration.component';
 import { PlanListComponent } from './modals/plan-list/plan-list.component';
 
+import * as echarts from 'echarts';
+import { NgxEchartsModule, NGX_ECHARTS_CONFIG } from 'ngx-echarts';
+import { ProductComponent } from './fragments/product/product.component';
+import { RetrySettingsComponent } from './fragments/retry-settings/retry-settings.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +60,9 @@ import { PlanListComponent } from './modals/plan-list/plan-list.component';
     SettingsComponent,
     IntegrationsComponent,
     KeyIntegrationComponent,
-    PlanListComponent
+    PlanListComponent,
+    ProductComponent,
+    RetrySettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,16 +76,19 @@ import { PlanListComponent } from './modals/plan-list/plan-list.component';
     MatInputModule,
     MatIconModule,
     MatTableModule,
+    MatSelectModule,
+    MatCardModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxEchartsModule.forRoot({ echarts: () => import('echarts') })
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorInterceptor,
       multi: true,
-    },
+    }
   ],
   bootstrap: [AppComponent]
 })

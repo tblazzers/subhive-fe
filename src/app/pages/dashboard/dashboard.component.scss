@@ -15,6 +15,15 @@ mat-toolbar {
 //     text-align: center;
 // }
 
+mat-form-field{
+  width: 200px;
+}
+
+.p-section {
+  display: flex;
+  justify-content: flex-end;
+}
+
 
 .side-nav {
   border-right: none;

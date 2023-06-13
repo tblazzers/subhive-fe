@@ -1,0 +1,67 @@
+p, div {
+  margin-top: 25px;
+}
+
+input, span, label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+p, label, span {
+  font-size: 18px;
+}
+
+.retry-header {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.retry-instruction {
+  font-size: 20px;
+  
+}
+
+.on-box {
+  margin-top: 15px;
+}
+
+.on-label {
+  font-size: 19px;
+  display: inline-block;
+  width: 250px;
+}
+
+.on-select {
+  width: 300px;
+}
+
+.on-span {
+  display: inline-block;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.retry-box {
+  padding-left: 70px;
+  padding-top: 10px;
+}
+
+.r-label {
+  width: 120px;
+}
+
+.days-input {
+  width: 80px;
+}
+
+.last-label {
+  width: 450px;
+}
+
+
+.save-container {
+  width: 75%;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+}
