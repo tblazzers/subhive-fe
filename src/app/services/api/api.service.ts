@@ -123,6 +123,9 @@ export class ApiService {
     return this.httpService.get<Gateway[]>(`${this.BASE_URL}${getwayUrl}`);
   }
 
+  createAccountEmailTemplate(name: string, content: object) {
+
+  }
   // getUserProfile() {
     
   //   if (this.accountProfile) {

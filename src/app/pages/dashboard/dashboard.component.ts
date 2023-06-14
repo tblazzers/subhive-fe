@@ -17,23 +17,23 @@ export class DashboardComponent {
   sidenav!: MatSidenav;
 
   accountProfile$: Observable<AccountProfile> | null = null;
-  products$: Observable<Product[]> | null = null;
+  // products$: Observable<Product[]> | null = null;
 
-  selectedProduct: string = 'all';
+  // selectedProduct: string = 'all';
 
 
   expanded = true;
 
   ngOnInit() {
     this.accountProfile$ = this.apiService.accountProfile$;
-    this.products$ = this.apiService.getAccountProducts();
+    // this.products$ = this.apiService.getAccountProducts();
   }
 
   constructor(private observer: BreakpointObserver, private router: Router, private apiService: ApiService) {}
 
-  setActiveProduct(event: any) {
-    this.apiService.setActiveProductId(this.selectedProduct);
-  }
+  // setActiveProduct(event: any) {
+  //   this.apiService.setActiveProductId(this.selectedProduct);
+  // }
 
   ngAfterViewInit() {
     this.observer

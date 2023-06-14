@@ -1,0 +1,12 @@
+<div>
+  <div class="editor-name-section">
+    <label class="template-name-label">Template Name:</label>
+    <input type="text" placeholder="Name" class="template-name-input" [(ngModel)]="templateName" required />
+  </div>
+  <div>
+    <email-editor (loaded)="editorLoaded()"></email-editor>
+  </div>
+  <div class="editor-name-section">
+    <button (click)="onSave()" class="new-btn">Save</button>
+  </div>
+</div>

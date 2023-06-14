@@ -27,7 +27,7 @@ import { NewProductComponent } from './modals/new-product/new-product.component'
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpInterceptorInterceptor } from './shared/interceptors/http-interceptor.interceptor';
 import { PlansComponent } from './fragments/plans/plans.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -40,6 +40,9 @@ import * as echarts from 'echarts';
 import { NgxEchartsModule, NGX_ECHARTS_CONFIG } from 'ngx-echarts';
 import { ProductComponent } from './fragments/product/product.component';
 import { RetrySettingsComponent } from './fragments/retry-settings/retry-settings.component';
+import { TemplateEditorComponent } from './modals/template-editor/template-editor.component';
+import { EmailEditorModule } from 'angular-email-editor';
+import { ProductSelectComponent } from './core/product-select/product-select.component';
 
 
 @NgModule({
@@ -62,7 +65,9 @@ import { RetrySettingsComponent } from './fragments/retry-settings/retry-setting
     KeyIntegrationComponent,
     PlanListComponent,
     ProductComponent,
-    RetrySettingsComponent
+    RetrySettingsComponent,
+    TemplateEditorComponent,
+    ProductSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +75,7 @@ import { RetrySettingsComponent } from './fragments/retry-settings/retry-setting
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
@@ -79,6 +85,7 @@ import { RetrySettingsComponent } from './fragments/retry-settings/retry-setting
     MatSelectModule,
     MatCardModule,
     MatDialogModule,
+    EmailEditorModule,
     MatFormFieldModule,
     MatTabsModule,
     NgxEchartsModule.forRoot({ echarts: () => import('echarts') })

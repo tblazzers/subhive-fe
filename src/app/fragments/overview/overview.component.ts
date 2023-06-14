@@ -13,7 +13,16 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class OverviewComponent {
   plans: Plan[];
+  active_filter : string = "this_week";
   displayedColumns: string[] = ["name", "billing_frequency", "billing_cycle", "price"];
+
+  filters = [
+    { name: "This Week", key: "this_week" },
+    { name: "This Month", key: "this_month" },
+    { name: "3 Months", key: "3_month" },
+    { name: "6 Month", key: "6_month" },
+    { name: "This Year", key: "this_year" },
+  ];
 
   constructor(private apiService: ApiService) {
     this.plans = [];
@@ -59,5 +68,9 @@ export class OverviewComponent {
       data: [0, 0 ,0 ,0, 0, 0],
       type: 'line'
     }]
+  }
+
+  onFilterClick(filter: string) {
+    this.active_filter = filter;
   }
 }

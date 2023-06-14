@@ -8,62 +8,62 @@
       retry. </p>
   </div>
   <div>
-    <form>
+    <form [formGroup]="retrySettingsForm">
       <div class="on-box">
         <label class="on-label">On Payment Success</label>
-        <select class="on-select">
+        <select class="on-select" formControlName="paySuccessTemplate">
           <option> send payment thank you along with reciept</option>
           <option> send payment thank you</option>
         </select>
-        <span class="on-span"><a>Customise</a></span>
+        <span class="on-span"><a (click)="openTemplateEditorDialog('', '')">Customise</a></span>
       </div>
       <div class="on-box">
         <label class="on-label">On Payment Failure</label>
-        <select class="on-select">
+        <select class="on-select" formControlName="payFailTemplate">
           <option> send failure notification and retry</option>
           <option> send cancellation notification</option>
         </select>
-        <span class="on-span"><a>Customise</a></span>
+        <span class="on-span"><a (click)="openTemplateEditorDialog('', '')">Customise</a></span>
       </div>
       <div>
         <div class="retry-box">
           <div>
             <input type="checkbox" checked disabled />
             <label class="r-label">First Retry</label>
-            <input class="days-input" type="number" />
+            <input class="days-input" type="number" formControlName="firstRetryDays" />
             <span>days after previous attempt, if it fails </span>
-            <select>
+            <select formControlName="firstRetryTemplate">
               <option> send failure notification and retry</option>
               <option> send cancellation notification</option>
             </select>
-            <span class="on-span"><a>Customise</a></span>
+            <span class="on-span"><a (click)="openTemplateEditorDialog('', '')">Customise</a></span>
           </div>
           <div>
             <input type="checkbox" checked />
             <label class="r-label">Second Retry</label>
-            <input class="days-input" type="number" />
+            <input class="days-input" type="number" formControlName="secondRetryDays" />
             <span>days after previous attempt, if it fails </span>
-            <select>
+            <select formControlName="secondRetryTemplate">
               <option> send failure notification and retry</option>
               <option> send cancellation notification</option>
             </select>
-            <span class="on-span"><a>Customise</a></span>
+            <span class="on-span"><a (click)="openTemplateEditorDialog('', '')">Customise</a></span>
           </div>
           <div>
             <input type="checkbox" checked />
             <label class="r-label">Third Retry</label>
-            <input class="days-input" type="number" />
+            <input class="days-input" type="number" formControlName="thirdRetryDays" />
             <span>days after previous attempt, if it fails </span>
-            <select>
+            <select formControlName="thirdRetryTemplate">
               <option> send failure notification and retry</option>
               <option> send cancellation notification</option>
             </select>
-            <span class="on-span"><a>Customise</a></span>
+            <span class="on-span"><a (click)="openTemplateEditorDialog('', '')">Customise</a></span>
           </div>
 
           <div>
             <label class="last-label">After all retries, send notification and mark as </label>
-            <select>
+            <select formControlName="finalSetting">
               <option>Unpaid</option>
               <option>Pending</option>
               <option>Cancelled</option>

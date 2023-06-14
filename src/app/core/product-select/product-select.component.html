@@ -1,0 +1,12 @@
+<div class="p-section">
+  <mat-form-field color="primary">
+    <mat-label color="primary">Select a product</mat-label>
+    <mat-select [(value)]="selectedProduct" (selectionChange)="setActiveProduct($event)">
+      <mat-option value="all">All</mat-option>
+
+      <mat-option *ngFor="let p of products$ | async" value="{{p.id}}">{{p.name}}</mat-option>
+      <!-- <mat-option value="option2">Option 2</mat-option>
+      <mat-option value="option3">Option 3</mat-option> -->
+    </mat-select>
+  </mat-form-field>        
+</div>
